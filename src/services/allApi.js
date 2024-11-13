@@ -50,6 +50,6 @@ export const updateUserProjectApi=async(id,reqBody,reqHeader)=>{
 
 //api to update profile
 
-export const updateUserProfileApi=async(reqBody,reqHeader)=>{
-    return await commonApi('PUT',`${serverUrl}/update-userProfile`,reqBody,reqHeader)
+export const updateUserProfileApi = async(reqBody, reqHeader)=>{
+    return await commonApi('PUT',`${serverUrl}/update-userProfile`,reqBody, reqHeader)
 }
