@@ -9,7 +9,6 @@ import { Collapse } from 'react-bootstrap';
 function Profile() {
   const [open, setOpen] = useState(false);
   const[userDetails,setUserDetails]=useState({
-    id:"",
     username:"",
     email:"",
     password:"",
