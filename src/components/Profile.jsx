@@ -17,6 +17,7 @@ function Profile() {
     linkedin:""
   })
   const [existingImage, setexistingImage] = useState("")
+  const[preview,setPreview]=useState("")
   const [updateStatus, setupdateStatus] = useState({})
 
   console.log(userDetails);
@@ -37,7 +38,7 @@ function Profile() {
       reqBody.append("password", password)
       reqBody.append("github", github)
       reqBody.append("linkedin", linkedin)
-      {preview ? reqBody.append("profile", profile) : reqBody.append("profile", existingImage)}
+      preview ? reqBody.append("profile", profile) : reqBody.append("profile", existingImage)
 
       const token = sessionStorage.getItem("token")
 
