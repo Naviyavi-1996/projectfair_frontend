@@ -105,10 +105,10 @@ function Profile() {
              <div className='d-flex justify-content-center align-items-center flex-column mt-3'>
                <label htmlFor="profileimage"className='d-flex justify-content-center align-items-center flex-column mb-4' >
                 <input type="file" id="profileimage" style={{display:'none'}}onChange={(e)=>{handleFile(e)}} />
-                {existingImg==""?
+                {existingImage==""?
                 <img src={preview?preview:"https://www.iconpacks.net/icons/2/free-user-icon-3297-thumb.png"} alt="no image" className='w-50' style={{width:'200px',height:'200px',borderRadius:'50%'}} />
                 :
-                <img src={preview?preview:`${serverUrl}/upload/${existingImg}`} alt="no image" className='w-50' style={{width:'200px',height:'200px',borderRadius:'50%'}}/>
+                <img src={preview?preview:`${serverUrl}/upload/${existingImage}`} alt="no image" className='w-50' style={{width:'200px',height:'200px',borderRadius:'50%'}}/>
     }
                </label>
                <div className='w-100'>
