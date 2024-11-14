@@ -37,7 +37,7 @@ function Profile() {
       reqBody.append("password", password)
       reqBody.append("github", github)
       reqBody.append("linkedin", linkedin)
-      preview ? reqBody.append("profile", profile) : reqBody.append("profile", existingImage)
+      {preview ? reqBody.append("profile", profile) : reqBody.append("profile", existingImage)}
 
       const token = sessionStorage.getItem("token")
 
