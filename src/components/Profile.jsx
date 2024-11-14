@@ -24,11 +24,9 @@ function Profile() {
   const handleFile=(e)=>{
     setUserDetails({...userDetails,profile:e.target.files[0]})
   }
-  const handleUpdate = async () => {
+  const handleUpdate = async () => {                                                       
     const { username, email, password, profile, github, linkedin } = userDetails
-    console.log(username, email, password, profile, github, linkedin);
-    
-    
+    console.log(username, email, password, profile, github, linkedin); 
     if (!github || !linkedin) {
       toast.info('Please add github and linkedin')
     }
@@ -86,10 +84,10 @@ function Profile() {
 
 
   useEffect(() => {
-    if (sessionStorage.getItem("existingUser")) {
+    if (sessionStorage.getItem("existinguser")) {
       const user = JSON.parse(sessionStorage.getItem("existingUser"))
       console.log(user);
-      setUserDetails({ ...userDetails, username: user.username, email: user.email, password: user.password, github: user.github, linkedin: user.linkedin })
+      setUserDetails({ ...userDetails,username:user.username, email:user.email,password:user.password, github:user.github,linkedin: user.linkedin })
       setexistingImage(user.profile)
     }
   }, [updateStatus])
