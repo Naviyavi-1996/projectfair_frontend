@@ -28,6 +28,7 @@ function Profile() {
     const { username, email, password, profile, github, linkedin } = userDetails
     console.log(username, email, password, profile, github, linkedin);
     
+    
     if (!github || !linkedin) {
       toast.info('Please add github and linkedin')
     }
