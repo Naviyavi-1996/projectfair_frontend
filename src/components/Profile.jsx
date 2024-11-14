@@ -84,10 +84,10 @@ function Profile() {
 
 
   useEffect(() => {
-    if (sessionStorage.getItem("existinguser")) {
+    if (sessionStorage.getItem("existingUser")) {
       const user = JSON.parse(sessionStorage.getItem("existingUser"))
       console.log(user);
-      setUserDetails({ ...userDetails,username:user.username, email:user.email,password:user.password, github:user.github,linkedin: user.linkedin })
+      setUserDetails({ ...userDetails, username: user.username, email: user.email, password: user.password, github: user.github, linkedin: user.linkedin })
       setexistingImage(user.profile)
     }
   }, [updateStatus])
