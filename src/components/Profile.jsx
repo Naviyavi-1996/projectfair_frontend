@@ -16,83 +16,81 @@ function Profile() {
     github:"",
     linkedin:""
   })
-  const[existingImg,setExistingImg]=useState("")
-  const[preview,setPreview]=useState("")
-  const[updateStatus,setUpdateStatus]=useState({})
+  const [existingImage, setexistingImage] = useState("")
+  const [updateStatus, setupdateStatus] = useState({})
+
   console.log(userDetails);
   const handleFile=(e)=>{
     setUserDetails({...userDetails,profile:e.target.files[0]})
   }
-  const handleUpdate=async()=>{
-    const{username,email,password,profile,github,linkedin}=userDetails
-    if(!github||!linkedin)
-    {
-      toast.info("Please add github and linkedin")
+  const handleUpdate = async () => {
+    const { username, email, password, profile, github, linkedin } = userDetails
+    console.log(username, email, password, profile, github, linkedin);
+    
+    if (!github || !linkedin) {
+      toast.info('Please add github and linkedin')
     }
-    else{
-      const reqBody=new FormData()
-      reqBody.append("username",username)
-      reqBody.append("email",email)
-      reqBody.append("password",password)
-      reqBody.append("github",github)
-      reqBody.append("linkedin",linkedin),
-      preview?reqBody.append("profile",profile):reqBody.append("profile",existingImg)
-      const token=sessionStorage.getItem("token")
-      if(preview)
-        {
-          const reqHeader={
-            "Content-Type":"multipart/form-data",
-            "Authorization":`Bearer ${token}`
-          }
-          const result=await updateUserProfileApi(reqBody,reqHeader)
-          console.log(result)
-          if(result.status==200)
-          {
-            toast.success("Updated successfully")
-            sessionStorage.setItem("existingUser",JSON.stringify(result.data))
-            setUpdateStatus(result)
-          }
-          else{
-            toast.error('something went wrong')
-          }
-    }else
-    {
-      const reqHeader={
-        "Content-Type":"application/json",
-        "Authorization":`Bearer ${token}`
+    else {
+      const reqBody = new FormData()
+      reqBody.append("username", username)
+      reqBody.append("email", email)
+      reqBody.append("password", password)
+      reqBody.append("github", github)
+      reqBody.append("linkedin", linkedin)
+      preview ? reqBody.append("profile", profile) : reqBody.append("profile", existingImage)
+
+      const token = sessionStorage.getItem("token")
+
+      if (preview) {
+        const reqHeader = {
+          "Content-Type": "multipart/form-data",
+          "Authorization": `Bearer ${token}`
+        }
+        const result = await updateUserProfileApi(reqBody, reqHeader)
+        console.log(result);
+        if (result.status == 200) {
+          toast.success('Profile Updated Successfully')
+          sessionStorage.setItem("existingUser", JSON.stringify(result.data))
+          setupdateStatus(result)
+        }
+
+      }
+      else {
+        const reqHeader = {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
+        const result = await updateUserProfileApi(reqBody, reqHeader)
+        console.log(result);
+        if (result.status == 200) {
+          toast.success('Profile Updated Successfully')
+          sessionStorage.setItem("existingUser", JSON.stringify(result.data))
+          setupdateStatus(result)
+        }
+        else{
+          toast.error('Something went wrong')
+        }
+      }
     }
-    const result=await updateUserProfileApi(reqBody,reqHeader)
-    console.log(result)
-    if(result.status==200)
-      {
-        toast.success("Updated successfully")
-        sessionStorage.setItem("existingUser",JSON.stringify(result.data))
-        setUpdateStatus(result)
-      }
-      else{
-        toast.error('something went wrong')
-      }
   }
-}
-  }
-  useEffect(()=>{
-    if(userDetails.profile)
-    {
+  useEffect(() => {
+    if (userDetails.profile) {
       setPreview(URL.createObjectURL(userDetails.profile))
     }
-  },[userDetails.profile])
+  }, [userDetails.profile])
 
-  console.log(preview)
 
-  useEffect(()=>{
-    if(sessionStorage.getItem("existingUser"))
-    {
-      const user=JSON.parse(sessionStorage.getItem(("existingUser")))
+  console.log(preview);
+
+
+  useEffect(() => {
+    if (sessionStorage.getItem("existingUser")) {
+      const user = JSON.parse(sessionStorage.getItem("existingUser"))
       console.log(user);
-      setUserDetails({...userDetails,username:user.username,email:user.email,password:user.password,github:user.github,linkedin:user.linkedin})
-      setExistingImg(user.profile)
+      setuserDetails({ ...userDetails, username: user.username, email: user.email, password: user.password, github: user.github, linkedin: user.linkedin })
+      setexistingImage(user.profile)
     }
-  },[updateStatus])
+  }, [updateStatus])
   return (
     <>
     <div className='p-4 shadow'onMouseEnter={()=>setOpen(true)} onMouseLeave={()=>setOpen(false)}>
