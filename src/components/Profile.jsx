@@ -18,7 +18,7 @@ function Profile() {
   })
   const [existingImage, setexistingImage] = useState("")
   const[preview,setPreview]=useState("")
-  const [updateStatus, setupdateStatus] = useState("")
+  const [updateStatus, setupdateStatus] = useState({})
 
   console.log(userDetails);
   const handleFile=(e)=>{
