@@ -114,7 +114,7 @@ function Profile() {
                     <input type="text" placeholder='gitHub'className='form-control' value={userDetails?.github} onChange={(e)=>setUserDetails({...userDetails,github:e.target.value})} />
                    </div>
                    <div className='mb-3'>
-                   <input type="text" placeholder='LinkedIn' className='form-control' value={userDetails?.website} onChange={(e)=>setUserDetails({...userDetails,linkedin:e.target.value})} />
+                   <input type="text" placeholder='LinkedIn' className='form-control' value={userDetails?.linkedin} onChange={(e)=>setUserDetails({...userDetails,linkedin:e.target.value})} />
                    </div>
                    <div className='mb-3'>
                    <button className='btn btn-success w-100'onClick={handleUpdate}>Update</button>
