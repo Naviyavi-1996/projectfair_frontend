@@ -50,7 +50,7 @@ function Profile() {
         console.log(result);
         if (result.status == 200) {
           toast.success('Profile Updated Successfully')
-          sessionStorage.setItem("existingUser", JSON.stringify(result.data))
+          sessionStorage.setItem("existinguser", JSON.stringify(result.data))
           setupdateStatus(result)
         }
 
@@ -64,7 +64,7 @@ function Profile() {
         console.log(result);
         if (result.status == 200) {
           toast.success('Profile Updated Successfully')
-          sessionStorage.setItem("existingUser", JSON.stringify(result.data))
+          sessionStorage.setItem("existinguser", JSON.stringify(result.data))
           setupdateStatus(result)
         }
         else{
@@ -84,8 +84,8 @@ function Profile() {
 
 
   useEffect(() => {
-    if (sessionStorage.getItem("existingUser")) {
-      const user = JSON.parse(sessionStorage.getItem("existingUser"))
+    if (sessionStorage.getItem("existinguser")) {
+      const user = JSON.parse(sessionStorage.getItem("existinguser"))
       console.log(user);
       setUserDetails({ ...userDetails, username: user.username, email: user.email, password: user.password, github: user.github, linkedin: user.linkedin })
       setexistingImage(user.profile)
