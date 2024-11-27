@@ -5,13 +5,13 @@ import Myproject from '../components/Myproject'
 import Profile from '../components/Profile'
 
 function Dashboard() {
-  /* const user = JSON.parse(sessionStorage.getItem("existinguser")) */
+  const user = JSON.parse(sessionStorage.getItem("existinguser"))
   /* console.log(user) */
   return (
    <> 
    <Header/>
    <div className='p-4'>
-   <h3>Welcome <span className='text-warning'>{/* {user.username} */}user</span></h3>
+   <h3>Welcome <span className='text-warning'> {user.username}user</span></h3>
    <Container>
     <Row className='mt-5'>
       <Col sm={12} md={8}>
