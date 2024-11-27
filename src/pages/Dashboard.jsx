@@ -11,7 +11,7 @@ function Dashboard() {
    <> 
    <Header/>
    <div className='p-4'>
-   <h3>Welcome <span className='text-warning'> {user.username}user</span></h3>
+   <h3>Welcome <span className='text-warning'> {user.username}</span></h3>
    <Container>
     <Row className='mt-5'>
       <Col sm={12} md={8}>
